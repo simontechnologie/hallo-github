@@ -1,126 +1,227 @@
+# React Tilt
 
-<h1 align="center">
-  <br>
-  <a href="http://www.amitmerchant.com/electron-markdownify"><img src="https://raw.githubusercontent.com/amitmerchant1990/electron-markdownify/master/app/img/markdownify.png" alt="Markdownify" width="200"></a>
-  <br>
-  Markdownify
-  <br>
-</h1>
+[![npm version][npm-badge]][npm-url]
+[![npm downloads][downloads-badge]][npm-url]
+[![npm bundle size][size-badge]][npm-url]
+[![CI][build-badge]][build-url]
+[![Codecov Coverage][coverage-badge]][coverage-url]
+[![semantic-release][semantic-badge]][semantic-url]
+[![prettier][prettier-badge]][prettier-url]
+[![TypeScript][typescript-badge]][typescript-url]
 
-<h4 align="center">A minimal Markdown Editor desktop app built on top of <a href="http://electron.atom.io" target="_blank">Electron</a>.</h4>
+_👀 Easily apply tilt hover effect on React components_
 
-<p align="center">
-  <a href="https://badge.fury.io/js/electron-markdownify">
-    <img src="https://badge.fury.io/js/electron-markdownify.svg"
-         alt="Gitter">
-  </a>
-  <a href="https://gitter.im/amitmerchant1990/electron-markdownify"><img src="https://badges.gitter.im/amitmerchant1990/electron-markdownify.svg"></a>
-  <a href="https://saythanks.io/to/bullredeyes@gmail.com">
-      <img src="https://img.shields.io/badge/SayThanks.io-%E2%98%BC-1EAEDB.svg">
-  </a>
-  <a href="https://www.paypal.me/AmitMerchant">
-    <img src="https://img.shields.io/badge/$-donate-ff69b4.svg?maxAge=2592000&amp;style=flat">
-  </a>
-</p>
+![](demo.gif)
 
-<p align="center">
-  <a href="#key-features">Key Features</a> •
-  <a href="#how-to-use">How To Use</a> •
-  <a href="#download">Download</a> •
-  <a href="#credits">Credits</a> •
-  <a href="#related">Related</a> •
-  <a href="#license">License</a>
-</p>
+## [Demo 💥](https://mkosir.github.io/react-parallax-tilt)
 
-![screenshot](https://raw.githubusercontent.com/amitmerchant1990/electron-markdownify/master/app/img/markdownify.gif)
-
-## Key Features
-
-* LivePreview - Make changes, See changes
-  - Instantly see what your Markdown documents look like in HTML as you create them.
-* Sync Scrolling
-  - While you type, LivePreview will automatically scroll to the current location you're editing.
-* GitHub Flavored Markdown  
-* Syntax highlighting
-* [KaTeX](https://khan.github.io/KaTeX/) Support
-* Dark/Light mode
-* Toolbar for basic Markdown formatting
-* Supports multiple cursors
-* Save the Markdown preview as PDF
-* Emoji support in preview :tada:
-* App will keep alive in tray for quick usage
-* Full screen mode
-  - Write distraction free.
-* Cross platform
-  - Windows, macOS and Linux ready.
-
-## How To Use
-
-To clone and run this application, you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:
+## Install
 
 ```bash
-# Clone this repository
-$ git clone https://github.com/amitmerchant1990/electron-markdownify
-
-# Go into the repository
-$ cd electron-markdownify
-
-# Install dependencies
-$ npm install
-
-# Run the app
-$ npm start
+npm install react-parallax-tilt
 ```
 
-Note: If you're using Linux Bash for Windows, [see this guide](https://www.howtogeek.com/261575/how-to-run-graphical-linux-desktop-applications-from-windows-10s-bash-shell/) or use `node` from the command prompt.
+## Features
 
+- Lightweight (3.8kB), zero dependencies 📦
+- Supports **mouse** and **touch** events
+- Support for device tilting (**gyroscope**)
+- **Glare** effect 🌟 with custom props (color, position,...) [🔗demo](https://mkosir.github.io/react-parallax-tilt/?path=/story/react-parallax-tilt--parallax-effect-glare-scale)
+- Events to keep track of component values 📐 (tilt, glare, mousemove,...) [🔗demo](https://mkosir.github.io/react-parallax-tilt/?path=/story/react-parallax-tilt--events-all)
+- Many effects and functionalities that can be easily applied:
+  - **scale** on hover [🔗demo](https://mkosir.github.io/react-parallax-tilt/?path=/story/react-parallax-tilt--scale)
+  - **disable** x/y axis [🔗demo](https://mkosir.github.io/react-parallax-tilt/?path=/story/react-parallax-tilt--tilt-disable-axis)
+  - **flip** component vertically/horizontally [🔗demo](https://mkosir.github.io/react-parallax-tilt/?path=/story/react-parallax-tilt--flip-vh)
+  - tilt hover effect on the **whole window** [🔗demo](https://mkosir.github.io/react-parallax-tilt/?path=/story/react-parallax-tilt--track-on-window)
+  - tilt component with custom **manual input** 🕹 (joystick, slider etc.) [🔗demo](https://mkosir.github.io/react-parallax-tilt/?path=/story/react-parallax-tilt--tilt-manual-input)
+  - **parallax** effect on overlaid images [🔗demo](https://mkosir.github.io/react-parallax-tilt/?path=/story/react-parallax-tilt--parallax-effect-img)
 
-## Download
+## Example
 
-You can [download](https://github.com/amitmerchant1990/electron-markdownify/releases/tag/v1.2.0) the latest installable version of Markdownify for Windows, macOS and Linux.
+```jsx
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Tilt from 'react-parallax-tilt';
 
-## Emailware
+const App = () => {
+  return (
+    <Tilt>
+      <div style={{ height: '300px', backgroundColor: 'darkgreen' }}>
+        <h1>React Parallax Tilt 👀</h1>
+      </div>
+    </Tilt>
+  );
+};
 
-Markdownify is an [emailware](https://en.wiktionary.org/wiki/emailware). Meaning, if you liked using this app or it has helped you in any way, I'd like you send me an email at <bullredeyes@gmail.com> about anything you'd want to say about this software. I'd really appreciate it!
+ReactDOM.render(<App />, document.getElementById('root'));
+```
 
-## Credits
+## Props
 
-This software uses the following open source packages:
+All of the props are optional.  
+Below is the complete list of possible props and their options:
 
-- [Electron](http://electron.atom.io/)
-- [Node.js](https://nodejs.org/)
-- [Marked - a markdown parser](https://github.com/chjj/marked)
-- [showdown](http://showdownjs.github.io/showdown/)
-- [CodeMirror](http://codemirror.net/)
-- Emojis are taken from [here](https://github.com/arvida/emoji-cheat-sheet.com)
-- [highlight.js](https://highlightjs.org/)
+> ▶︎ indicates the default value if there's one
 
-## Related
+**tiltEnable**: _boolean_ ▶︎ `true`  
+Boolean to enable/disable tilt effect.
 
-[markdownify-web](https://github.com/amitmerchant1990/markdownify-web) - Web version of Markdownify
+**tiltReverse**: _boolean_ ▶︎ `false`  
+Reverse the tilt direction.
 
-## Support
+**tiltAngleXInitial**: _number_ ▶︎ `0`  
+Initial tilt value (degrees) on x axis.
 
-<a href="https://www.buymeacoffee.com/5Zn8Xh3l9" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/purple_img.png" alt="Buy Me A Coffee" style="height: 41px !important;width: 174px !important;box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 3px 2px 0px rgba(190, 190, 190, 0.5) !important;" ></a>
+**tiltAngleYInitial**: _number_ ▶︎ `0`  
+Initial tilt value (degrees) on y axis.
 
-<p>Or</p> 
+**tiltMaxAngleX**: _number_ ▶︎ `20`  
+Max tilt rotation (degrees) on x axis (range: `0°-90°`).
 
-<a href="https://www.patreon.com/amitmerchant">
-	<img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" width="160">
-</a>
+**tiltMaxAngleY**: _number_ ▶︎ `20`  
+Max tilt rotation (degrees) on y axis (range: `0°-90°`).
 
-## You may also like...
+**tiltAxis**: _'x' | 'y' | null_ ▶︎ `null`  
+Which axis should be enabled. If null both are enabled.
 
-- [Pomolectron](https://github.com/amitmerchant1990/pomolectron) - A pomodoro app
-- [Correo](https://github.com/amitmerchant1990/correo) - A menubar/taskbar Gmail App for Windows and macOS
+**tiltAngleXManual**: _number_ | null} ▶︎ `null`  
+Manual tilt rotation (degrees) on x axis.
 
-## License
+**tiltAngleYManual**: _number_ | null} ▶︎ `null`  
+Manual tilt rotation (degrees) on y axis.
 
-Patrik
+**glareEnable**: _boolean_ ▶︎ `false`  
+Boolean to enable/disable glare effect.
 
----
+**glareMaxOpacity**: _number_ ▶︎ `0.7`  
+The maximum glare opacity (range: `0-1`).
 
-> [amitmerchant.com](https://www.amitmerchant.com) &nbsp;&middot;&nbsp;
-> GitHub [@amitmerchant1990](https://github.com/amitmerchant1990) &nbsp;&middot;&nbsp;
-> Twitter [@amit_merchant](https://twitter.com/amit_merchant)
+**glareColor**: _string_ ▶︎ `#ffffff`  
+Set color of glare effect.
 
+**glareBorderRadius**: _string_ ▶︎ `0`  
+Accepts any standard CSS border radius. Useful if the glare color is different to the page color.
+
+**glarePosition**: _'top' | 'right' | 'bottom' | 'left' | 'all'_ ▶︎ `bottom`  
+Set position of glare effect.
+
+**glareReverse**: _boolean_ ▶︎ `false`  
+Reverse the glare direction.
+
+**scale**: _number_ ▶︎ `1`  
+Scale of the component (1.5 = 150%, 2 = 200%, etc.).
+
+**perspective**: _number_ ▶︎ `1000`  
+The perspective property defines how far the object (wrapped/child component) is away from the user. The lower the more extreme the tilt gets.
+
+**flipVertically**: _boolean_ ▶︎ `false`  
+Boolean to enable/disable vertical flip of component.
+
+**flipHorizontally**: _boolean_ ▶︎ `false`  
+Boolean to enable/disable horizontal flip of component.
+
+**reset**: _boolean_ ▶︎ `true`  
+If the effects has to be reset on `onLeave` event.
+
+**transitionEasing**: _string_ ▶︎ `cubic-bezier(.03,.98,.52,.99)`  
+Easing of the transition when manipulating the component.
+
+**transitionSpeed**: _number_ ▶︎ `400`  
+Speed of the transition when manipulating the component.
+
+**trackOnWindow**: _boolean_ ▶︎ `false`  
+Track mouse and touch events on the whole window.
+
+**gyroscope**: _boolean_ ▶︎ `false`  
+Boolean to enable/disable device orientation detection.
+
+**onMove**: _Function_ => (**tiltAngleX**: _number_, **tiltAngleY**: _number_, **tiltAngleXPercentage**: _number_, **tiltAngleYPercentage**: _number_, **glareAngle**: _number_, **glareOpacity**: _number_, **eventType**: _string | null_)  
+Gets triggered when user moves on the component.
+
+**onEnter**: _Function_ => (**eventType**: _string | null_)  
+Gets triggered when user enters the component.
+
+**onLeave**: _Function_ => (**eventType**: _string | null_)  
+Gets triggered when user leaves the component.
+
+## Gyroscope - Device Orientation
+
+Please keep in mind that detecting device orientation is currently [experimental technology](https://developer.mozilla.org/en-US/docs/MDN/Contribute/Guidelines/Conventions_definitions#Experimental).  
+Check the [browser compatibility](https://caniuse.com/#search=DeviceOrientation) before using this in production.  
+A few takeaways when using device orientation event:
+
+- always use secure origins (such as `https`)
+- it doesn't work in all browsers when using it in cross-origin `<iframe>` element
+
+<details>
+<summary>Using device orientation on iOS 13+</summary>
+
+Apple decided turning device motion and orientation off by default since iOS 12.2.  
+With iOS 13+ permission API can be used to gain access to device orientation event.
+
+When using gyroscope feature:
+
+```jsx
+<Tilt gyroscope={true}>
+  <h1>React Parallax Tilt 👀</h1>
+</Tilt>
+```
+
+it will present a permission dialog prompting the user to allow motion and orientation access at domain level:
+![](device_orientation.jpg)
+
+Note that user needs to take some action (like tapping a button) to be able to display the dialog (invoking dialog on page load is not possible).
+
+</details>
+
+## Development
+
+_Easily set up a local development environment!_
+
+Build all the examples and start storybook server on [localhost:9009](http://localhost:9009):
+
+- clone
+- `npm install`
+- `npm start`
+
+**Start coding!** 🎉
+
+<details>
+<summary>Or setup with npm link</summary>
+Clone this repo on your machine, navigate to its location in the terminal and run:
+
+```bash
+npm install
+npm link # link your local repo to your global packages
+npm run build:watch # build the files and watch for changes
+```
+
+Clone project repo that you wish to test with react-parallax-tilt library and run:
+
+```bash
+npm install
+npm link react-parallax-tilt # link your local copy into this project's node_modules
+npm start
+```
+
+</details>
+
+## Contributing
+
+All contributions are welcome!  
+Please take a moment to review guidelines [PR](.github/pull_request_template.md) | [Issues](https://github.com/mkosir/react-parallax-tilt/issues/new/choose)
+
+[npm-url]: https://www.npmjs.com/package/react-parallax-tilt
+[npm-badge]: https://img.shields.io/npm/v/react-parallax-tilt.svg
+[size-badge]: https://badgen.net/bundlephobia/minzip/react-parallax-tilt
+[downloads-badge]: https://img.shields.io/npm/dm/react-parallax-tilt.svg?color=blue
+[build-badge]: https://github.com/mkosir/react-parallax-tilt/actions/workflows/main.yml/badge.svg
+[build-url]: https://github.com/mkosir/react-parallax-tilt/actions/workflows/main.yml
+[coverage-badge]: https://codecov.io/gh/mkosir/react-parallax-tilt/branch/master/graph/badge.svg
+[coverage-url]: https://codecov.io/gh/mkosir/react-parallax-tilt
+[semantic-badge]: https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg
+[semantic-url]: https://github.com/semantic-release/semantic-release
+[typescript-badge]: https://badges.frapsoft.com/typescript/code/typescript.svg?v=101
+[typescript-url]: https://github.com/microsoft/TypeScript
+[prettier-badge]: https://img.shields.io/badge/code_style-prettier-ff69b4.svg
+[prettier-url]: https://github.com/prettier/prettier
